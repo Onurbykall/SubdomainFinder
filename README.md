@@ -1,46 +1,61 @@
+İşte bu kodun GitHub'daki README dosyasına uygun şekilde düzeltilmiş açıklama metni:
+
+---
+
 # SubdomainFinder
-SubdomainFinder
-Subdomain Finder
-Overview
-This script is a simple subdomain scanner designed to find and log subdomains of a target domain. It utilizes multi-threading to speed up the scanning process and handles interruptions gracefully.
 
-Features
-Concurrent Requests: Uses ThreadPoolExecutor to perform multiple requests simultaneously, speeding up the scanning process.
-Graceful Shutdown: Handles Ctrl+C interrupts to stop scanning and shut down resources properly.
-Logging: Saves discovered subdomains to a file and avoids re-checking previously discovered subdomains.
-Error Handling: Suppresses error messages and handles exceptions during execution.
-How It Works
-Load Existing Subdomains:
+## Overview
 
-Reads the found_subdomains.txt file to load any previously discovered subdomains.
-If the file does not exist, it starts with an empty set.
-Subdomain Checking:
+**SubdomainFinder** is a subdomain scanner designed to find and log subdomains of a target domain. It leverages multi-threading to speed up the scanning process and ensures graceful handling of interruptions.
 
-Iterates through a list of subdomains (from subDomainlist.txt), constructs the full URL, and checks if it resolves.
-If a subdomain is found, it is printed and appended to the found_subdomains.txt file.
-Handling Interrupts:
+## Features
 
-Uses signal handling to catch Ctrl+C interrupts, setting a shutdown event to signal threads to stop.
-Waits for threads to finish before exiting the program.
-Resource Cleanup:
+- **Concurrent Requests**: Utilizes `ThreadPoolExecutor` to perform multiple requests simultaneously, enhancing the efficiency of the scanning process.
+- **Graceful Shutdown**: Handles `Ctrl+C` interrupts to stop scanning and shut down resources cleanly.
+- **Logging**: Saves discovered subdomains to a file (`found_subdomains.txt`) and prevents re-checking of already discovered subdomains.
+- **Error Handling**: Suppresses error messages and manages exceptions during execution.
 
-Ensures that the ThreadPoolExecutor is properly shut down and resources are cleaned up.
-Provides user feedback indicating that the subdomain scan is complete and the program has closed.
-Usage
-Setup:
+## How It Works
 
-Ensure you have Python installed.
-Install the required libraries with pip install requests.
-Configuration:
+1. **Load Existing Subdomains**:
+   - Reads the `found_subdomains.txt` file to retrieve any previously discovered subdomains.
+   - If the file is absent, it initializes with an empty set.
 
-Modify the target_url variable to the domain you want to scan.
-Update wordlist_file with the path to your subdomain list.
-Running the Script:
+2. **Subdomain Checking**:
+   - Iterates through a list of subdomains (from `subDomainlist.txt`), constructs the full URL, and checks its availability.
+   - If a subdomain resolves successfully, it is printed and added to `found_subdomains.txt`.
 
-Run the script using python arama.py.
-Press Ctrl+C to interrupt the scan. The script will clean up and exit gracefully.
-Example
-bash
-Kodu kopyala
+3. **Handling Interrupts**:
+   - Uses signal handling to detect `Ctrl+C` interrupts, setting a shutdown event to notify threads to stop.
+   - Waits for all threads to complete before exiting the program.
+
+4. **Resource Cleanup**:
+   - Ensures that the `ThreadPoolExecutor` is properly shut down and resources are released.
+   - Provides feedback to the user indicating the completion of the subdomain scan and that the program has closed.
+
+## Usage
+
+1. **Setup**:
+   - Ensure Python is installed on your system.
+   - Install the required libraries using: `pip install requests`.
+
+2. **Configuration**:
+   - Modify the `target_url` variable in the script to the domain you want to scan.
+   - Update the `wordlist_file` variable with the path to your subdomain list file.
+
+3. **Running the Script**:
+   - Execute the script using: `python arama.py`.
+   - Press `Ctrl+C` to interrupt the scan. The script will handle the shutdown process and exit gracefully.
+
+### Example
+
+```bash
 python arama.py
-Note: The script creates and updates found_subdomains.txt with each discovered subdomain. Make sure you have the necessary permissions to write to this file.
+```
+
+**Note**: The script will create and update `found_subdomains.txt` with each discovered subdomain. Ensure you have the necessary write permissions for this file.
+
+
+
+---
+
