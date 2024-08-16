@@ -50,7 +50,7 @@
 ### Example
 
 ```bash
-python arama.py
+python subDomainFinder.py
 ```
 
 **Note**: The script will create and update `found_subdomains.txt` with each discovered subdomain. Ensure you have the necessary write permissions for this file.
