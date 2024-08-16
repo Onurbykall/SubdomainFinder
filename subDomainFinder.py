@@ -4,7 +4,7 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import threading
 import io
-import time
+import os
 
 # Global variables
 executor = None
@@ -12,6 +12,9 @@ shutdown_event = threading.Event()
 
 # File used for storing found subdomains
 found_subdomains_file = "found_subdomains.txt"
+
+# Default subdomain list file
+default_wordlist_file = "subdomainlist.txt"
 
 # Function to load existing subdomains from the file
 def load_existing_subdomains():
@@ -73,8 +76,21 @@ if __name__ == "__main__":
     # Set up the signal handler for graceful shutdown on Ctrl+C
     signal.signal(signal.SIGINT, signal_handler)
 
-    target_url = "google.com"  # The target domain to check
-    wordlist_file = "subDomainlist.txt"  # The file containing the subdomain list
+    # Prompt user for the target URL
+    target_url = input("Enter the target domain (e.g., example.com): ").strip()
+    if not target_url:
+        print("Target domain cannot be empty.")
+        sys.exit(1)
+
+    # Prompt user for the subdomain list file or use default
+    wordlist_file = input(f"Enter the path to the subdomain list file (default: {default_wordlist_file}): ").strip()
+    if not wordlist_file:
+        wordlist_file = default_wordlist_file
+
+    # Check if the provided file exists
+    if not os.path.isfile(wordlist_file):
+        print(f"The file '{wordlist_file}' does not exist.")
+        sys.exit(1)
 
     # Redirect stderr to suppress error messages
     original_stderr = sys.stderr
