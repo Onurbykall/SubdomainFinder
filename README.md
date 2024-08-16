@@ -44,7 +44,7 @@
    - Update the `wordlist_file` variable with the path to your subdomain list file.
 
 3. **Running the Script**:
-   - Execute the script using: `python arama.py`.
+   - Execute the script using: `python subDomainFinder.py`.
    - Press `Ctrl+C` to interrupt the scan. The script will handle the shutdown process and exit gracefully.
 
 ### Example
