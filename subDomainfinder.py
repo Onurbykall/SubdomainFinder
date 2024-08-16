@@ -74,7 +74,7 @@ if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
 
     target_url = "google.com"  # The target domain to check
-    wordlist_file = "subdomainlist2.txt"  # The file containing the subdomain list
+    wordlist_file = "subDomainlist.txt"  # The file containing the subdomain list
 
     # Redirect stderr to suppress error messages
     original_stderr = sys.stderr
