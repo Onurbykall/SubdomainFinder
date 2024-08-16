@@ -1,4 +1,4 @@
-İşte bu kodun GitHub'daki README dosyasına uygun şekilde düzeltilmiş açıklama metni:
+
 
 ---
 
