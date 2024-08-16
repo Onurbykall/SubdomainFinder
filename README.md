@@ -1,7 +1,3 @@
-Tabii, işte konfigürasyon kısmını da içeren tam README açıklaması:
-
----
-
 # SubdomainFinder
 
 ## Overview
@@ -56,9 +52,6 @@ python subDomainFinder.py
 
 **Note**: The script will create and update `found_subdomains.txt` with each discovered subdomain. Make sure you have the necessary write permissions for this file.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
