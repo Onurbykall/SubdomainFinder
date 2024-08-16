@@ -1,4 +1,4 @@
-
+Tabii, işte konfigürasyon kısmını da içeren tam README açıklaması:
 
 ---
 
@@ -33,19 +33,20 @@
    - Ensures that the `ThreadPoolExecutor` is properly shut down and resources are released.
    - Provides feedback to the user indicating the completion of the subdomain scan and that the program has closed.
 
-## Usage
+## Configuration
 
 1. **Setup**:
    - Ensure Python is installed on your system.
    - Install the required libraries using: `pip install requests`.
 
 2. **Configuration**:
-   - Modify the `target_url` variable in the script to the domain you want to scan.
-   - Update the `wordlist_file` variable with the path to your subdomain list file.
+   - **Target Domain**: Edit the `target_url` variable in the `subDomainFinder.py` script to specify the domain you want to scan. For example, set `target_url = "example.com"`.
+
+   - **Subdomain List**: Update the `wordlist_file` variable with the path to your subdomain list file. By default, it is set to `"subDomainlist.txt"`. Ensure this file contains potential subdomains to test, one per line.
 
 3. **Running the Script**:
-   - Execute the script using: `python subDomainFinder.py`.
-   - Press `Ctrl+C` to interrupt the scan. The script will handle the shutdown process and exit gracefully.
+   - Execute the script using the command: `python subDomainFinder.py`.
+   - If needed, you can interrupt the scan by pressing `Ctrl+C`. The script will handle the shutdown process and exit gracefully.
 
 ### Example
 
@@ -53,9 +54,12 @@
 python subDomainFinder.py
 ```
 
-**Note**: The script will create and update `found_subdomains.txt` with each discovered subdomain. Ensure you have the necessary write permissions for this file.
+**Note**: The script will create and update `found_subdomains.txt` with each discovered subdomain. Make sure you have the necessary write permissions for this file.
 
+## License
 
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
+Bu açıklama, kullanıcıların scriptin konfigürasyonunu nasıl yapacağını, gerekli dosyaları nasıl ayarlayacağını ve scripti nasıl çalıştıracağını net bir şekilde anlatır. Konfigürasyon adımlarını içerdiği için, kullanıcılar doğru ayarları yaparak scripti kolayca kullanabilirler.
